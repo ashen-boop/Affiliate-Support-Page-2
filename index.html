@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affiliate Support · The Artistic Unity</title>
+  <style>
+    /* ----- reset & base (white/minimal) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f6f8fc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.8rem;
+      color: #1a1f2e;
+      line-height: 1.5;
+    }
+
+    /* card – clean white with subtle shadow */
+    .card {
+      max-width: 780px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 3rem 2.8rem;
+      box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 2rem 1.5rem;
+        border-radius: 1.8rem;
+      }
+    }
+
+    /* ----- typography (minimal, crisp) ----- */
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0b1424;
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #2b3550;
+      margin-bottom: 2rem;
+      padding-bottom: 0.2rem;
+      border-bottom: 2px solid #eef2f7;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0.8rem;
+    }
+
+    .commission-badge {
+      display: inline-block;
+      background: #f0f3fa;
+      padding: 0.15rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1a2744;
+      letter-spacing: 0.2px;
+      border: 1px solid #e2e8f2;
+    }
+
+    .commission-badge strong {
+      color: #1a3b7a;
+      font-weight: 600;
+    }
+
+    /* founder row – minimal, light */
+    .founder-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 1.8rem;
+      background: #f6f4f5;
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      margin-bottom: 2.2rem;
+      border: 1px solid #0b0b0b;
+      font-size: 1rem;
+      color: #1f2a41;
+    }
+
+    .founder-line strong {
+      font-weight: 600;
+      color: #0b1424;
+    }
+
+    .founder-line .email-link {
+      color: #1f3b7a;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      border-bottom: 1px dotted #b2c7e8;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .founder-line .email-link:hover {
+      color: #0b1f4a;
+      border-bottom-color: #1f3b7a;
+    }
+
+    .founder-line .sep {
+      color: #bac3d4;
+      font-weight: 300;
+    }
+
+    @media (max-width: 500px) {
+      .founder-line {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 32px;
+        gap: 0.25rem;
+        padding: 0.8rem 1.5rem;
+      }
+      .founder-line .sep {
+        display: none;
+      }
+    }
+
+    /* ----- hub list – minimal white cards ----- */
+    .hub-list {
+      list-style: none;
+      margin: 2rem 0 2.2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .hub-list li {
+      background: #f5f7f8;
+      padding: 0.9rem 1.5rem;
+      border-radius: 40px;
+      border-left: 4px solid #3b6bcf;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.25rem 0.6rem;
+      font-size: 1rem;
+      transition: background 0.15s, border-color 0.15s;
+      border: 1px solid #eef2f8;
+      border-left-width: 4px;
+    }
+
+    .hub-list li:hover {
+      background: #f4f8ff;
+      border-color: #d0ddf5;
+      border-left-color: #2a5bc7;
+    }
+
+    .hub-name {
+      font-weight: 600;
+      color: #0b1b3a;
+      letter-spacing: -0.01em;
+    }
+
+    .hub-desc {
+      color: #34415f;
+    }
+
+    .hub-price {
+      margin-left: auto;
+      background: #eef3fc;
+      padding: 0.1rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1f3b7a;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      border: 1px solid #e2eaf5;
+    }
+
+    @media (max-width: 500px) {
+      .hub-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+        padding: 0.9rem 1.2rem;
+        border-radius: 28px;
+      }
+      .hub-price {
+        margin-left: 0;
+        margin-top: 0.2rem;
+        font-size: 0.75rem;
+        padding: 0.1rem 0.8rem;
+      }
+    }
+
+    /* ----- question line – minimal white pill ----- */
+    .question-line {
+      margin: 2.2rem 0 1.4rem 0;
+      font-size: 1rem;
+      background: #f8faff;
+      padding: 0.7rem 1.6rem;
+      border-radius: 60px;
+      border: 1px solid #e4ebf5;
+      display: inline-block;
+      width: auto;
+      color: #1c2945;
+    }
+
+    .question-line .email-link {
+      color: #1f3b7a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #b2c7e8;
+      transition: color 0.2s, border-bottom-color 0.2s;
+    }
+
+    .question-line .email-link:hover {
+      color: #0b1f4a;
+      border-bottom-color: #1f3b7a;
+    }
+
+    /* ----- fine print / minimal footer ----- */
+    .fine-print {
+      margin-top: 2.2rem;
+      font-size: 0.8rem;
+      color: #7a86a0;
+      border-top: 1px solid #e9eef6;
+      padding-top: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .fine-print span {
+      opacity: 0.8;
+    }
+
+    /* ----- extra minimal touches ----- */
+    ::selection {
+      background: #d6e2f5;
+      color: #0b1424;
+    }
+
+    /* small screens */
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .subhead {
+        font-size: 1rem;
+        border-bottom-width: 1px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- main heading -->
+    <h1>Affiliate Support — The Artistic Unity</h1>
+
+    <!-- subheading + commission -->
+    <div class="subhead">
+      Promote premium digital agency packages and earn 
+      <span class="commission-badge"><strong>15%</strong> commission</span>
+    </div>
+
+    <!-- founder + live Gmail link -->
+    <div class="founder-line">
+      <span><strong>Ashen Chalintha Gamage</strong> <span class="sep">·</span> Founder</span>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ashen@theartisticunity.com" target="_blank" class="email-link">✉ ashen@theartisticunity.com</a>
+    </div>
+
+    <!-- 3 hubs (minimal list) -->
+    <ul class="hub-list">
+      <li>
+        <span class="hub-name">⛁ Revenue Hub</span>
+        <span class="hub-desc">— Branding, websites, marketing</span>
+        <span class="hub-price">starts at $3,000 (Negotiable)</span>
+      </li>
+      <li>
+        <span class="hub-name">⚙️ Backend Hub</span>
+        <span class="hub-desc">— Inventory, finance, HR systems</span>
+        <span class="hub-price">starts at $3,000 (Negotiable)</span>
+      </li>
+      <li>
+        <span class="hub-name">📅 Booking Hub</span>
+        <span class="hub-desc">— Reservation apps for hotels, salons, clinics</span>
+        <span class="hub-price">starts at $3,000 (Negotiable)</span>
+      </li>
+    </ul>
+
+    <!-- question line with live Gmail link -->
+    <div class="question-line">
+      💬 Have questions? Email me directly at 
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ashen@theartisticunity.com" target="_blank" class="email-link">ashen@theartisticunity.com</a>
+    </div>
+
+    <!-- minimal footer -->
+    <div class="fine-print">
+      <span>© The Artistic Unity — digital agency</span>
+      <span>✦ 15% recurring commission</span>
+    </div>
+  </div>
+</body>
+</html>
